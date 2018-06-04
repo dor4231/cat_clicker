@@ -17,7 +17,7 @@ class Cat {
         this.catCard = `
     <div class="cat-card ${this.name}">
         <h3>${this.name}</h3>
-        <p class="click-counter">Number of clicks: <span class="number"></span></p>
+        <p class="click-counter">Number of clicks: <span class="number">0</span></p>
         <img src="${this.image}" alt="Cat Image to click on">
      </div>`;
     }
