@@ -29,11 +29,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const catsImages = ['engry_cat', 'heary_cat'];
     const catsNames = ['Mario', 'Marco'];
     const cats = {};
+    const clickCounters = {};
 
     const catsCardContainer = document.querySelector('.card-container');
 
     for (const cat in catsNames) {
-        cats[catsNames[cat]] = new Cat(catsNames[cat], catsImages[cat]);
+        const name = catsNames[cat];
+        const img = catsImages[cat];
+
+        cats[name] = new Cat( name , img );
+        clickCounters[name] = document.querySelector(`.cat-card.${name} .number`);
     }
 
     for (const cat of catsNames) {
@@ -41,20 +46,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    const clickCounter = document.querySelector(".click-counter .number");
-
-
-    function updatePageElements() {
-        clickCounter.innerText = player.counter;
+    function updatePageElements(catName) {
+        document.querySelector(`.cat-card.${catName} .number`).innerText = cats[catName].clickCounter;
     }
 
     catsCardContainer.addEventListener("click", function (event) {
-        if(event.target.tagName === "DIV"){
-            const catName = event.target.querySelector('h3').innerText;
-            const catImage = document.querySelector(".cat-image");
+        if(event.target.tagName === "IMG"){
+            const catCard = event.target.parentElement;
+            const catName = catCard.querySelector('h3').innerText;
+            // const catImage = document.querySelector(".cat-image");
+            cats[catName].clickCounter += 1;
+            updatePageElements(catName);
         }
-
-        player.increasCounter(1);
-        updatePageElements();
     });
 });
