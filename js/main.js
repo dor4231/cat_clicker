@@ -17,7 +17,7 @@ class Cat {
         this.catCard = `
     <div class="cat-card ${this.name}">
         <h3>${this.name}</h3>
-        <p class="click-counter">Number of clicks: <span class="number">0</span></p>
+        <p class="click-counter">Number of clicks: <span class="number">${this.clickCounter}</span></p>
         <img src="${this.image}" alt="Cat Image to click on">
      </div>`;
         this.catListItem = `
@@ -66,4 +66,14 @@ document.addEventListener("DOMContentLoaded", function () {
             updatePageElements(catName);
         }
     });
+
+    catsList.addEventListener('click', function(event) {
+        console.log(event.target.innerText);
+        if (event.target.tagName === "LI") {
+            const catName = event.target.innerText;
+
+            catsCardContainer.innerHTML = cats[catName].catCard;
+            updatePageElements(catName);
+        }
+    })
 });
