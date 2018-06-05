@@ -20,18 +20,25 @@ class Cat {
         <p class="click-counter">Number of clicks: <span class="number">0</span></p>
         <img src="${this.image}" alt="Cat Image to click on">
      </div>`;
+        this.catListItem = `
+        <li>
+            ${this.name}        
+        </li>
+        `
     }
 }
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const player = new Player();
-    const catsImages = ['engry_cat', 'heary_cat'];
-    const catsNames = ['Mario', 'Marco'];
+    const catsImages = ['engry_cat', 'heary_cat', 'profile_cat', 'santa_cat', 'sleeping_cat'];
+    const catsNames = ['Mario', 'Marco', 'Meow', 'Lucky', 'Leon'];
     const cats = {};
     const clickCounters = {};
 
+    const player = new Player();
+
     const catsCardContainer = document.querySelector('.card-container');
+    const catsList = document.querySelector('.cat-list');
 
     for (const cat in catsNames) {
         const name = catsNames[cat];
@@ -42,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     for (const cat of catsNames) {
-        catsCardContainer.innerHTML += cats[cat].catCard;
+        catsList.innerHTML += cats[cat].catListItem;
     }
 
 
