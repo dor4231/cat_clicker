@@ -37,16 +37,29 @@ p {
     justify-content: space-between;
     width: 80%;
     margin: 0 auto;
-    /*background: rgba(0,0,0,0.3);*/
 }
 
 .cat-card {
-    flex-basis: 40%;
+    flex-basis: 70%;
     background: aliceblue;
     box-shadow: 1px 1px 5px #000;
     height: 100%;
     padding: 10px;
     border-radius: 10px;
+    margin: 3% 15%;
+    text-align: center;
+    font-size: 2vw;
+}
+
+.cat-card h3 {
+    font-size: 2.3em;
+    padding: 0;
+    margin: 0;
+}
+
+.cat-card p {
+    padding: 0;
+    margin: 0;
 }
 
 .cat-card img {
@@ -56,7 +69,7 @@ p {
 
 .side-menu {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: column nowrap;
     position: fixed;
     width: 20%;
     height: 100%;
@@ -69,5 +82,31 @@ p {
 .side-menu h2 {
     text-align: center;
     color: white;
-    flex-basis: 100%;
+}
+
+.side-menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.side-menu li {
+    background: rgba(0,0,0,0.3);
+    border-radius: 4px;
+    list-style: none;
+    margin: 10% 5%;
+    width: 84%;
+    padding: 5% 3%;
+    color: white;
+    text-align: center;
+    transition: text-shadow 0.3s,
+                background 0.3s,
+                margin 0.4s,
+                width 0.4s;
+}
+
+.side-menu li:hover {
+    text-shadow: 0 0 6px antiquewhite;
+    background: rgba(0,0,0,0.6);
+    margin: 10% 2%;
+    width: 90%;
 }
