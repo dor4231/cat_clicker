@@ -1,39 +1,24 @@
-class Player {
+const model = {
+    catsImages: ['engry_cat', 'heary_cat', 'profile_cat', 'santa_cat', 'sleeping_cat'],
+    catsNames: ['Mario', 'Marco', 'Meow', 'Lucky', 'Leon'],
 
-    constructor() {
-        this.counter = 0;
+
+    init: function() {
+        this.cats = {};
+        this.clickCounters = {};
     }
+};
 
-    increasCounter(num) {
-        this.counter += num;
-    }
-}
+const octo = {
 
-class Cat {
-    constructor(name, image) {
-        this.name = name;
-        this.image = `assets/img/${image}.jpg`;
-        this.clickCounter = 0;
-        this.catCard = `
-    <div class="cat-card ${this.name}">
-        <h3>${this.name}</h3>
-        <p class="click-counter">Number of clicks: <span class="number">${this.clickCounter}</span></p>
-        <img src="${this.image}" alt="Cat Image to click on">
-     </div>`;
-        this.catListItem = `
-        <li>
-            ${this.name}        
-        </li>
-        `
-    }
-}
+};
 
+const view = {
+
+};
 
 document.addEventListener("DOMContentLoaded", function () {
-    const catsImages = ['engry_cat', 'heary_cat', 'profile_cat', 'santa_cat', 'sleeping_cat'];
-    const catsNames = ['Mario', 'Marco', 'Meow', 'Lucky', 'Leon'];
-    const cats = {};
-    const clickCounters = {};
+
 
     const player = new Player();
 
