@@ -1,37 +1,42 @@
 const model = {
     catsImages: ['engry_cat', 'heary_cat', 'profile_cat', 'santa_cat', 'sleeping_cat'],
     catsNames: ['Mario', 'Marco', 'Meow', 'Lucky', 'Leon'],
-
+    player: new Player(),
 
     init: function() {
-        this.cats = {};
-        this.clickCounters = {};
+        this.createCats();
+    },
+
+    createCats: function() {
+        for (const cat in this.catsNames) {
+            const name = this.catsNames[cat];
+            const img = this.catsImages[cat];
+
+            this.cats[name] = new Cat( name , img );
+            this.clickCounters[name] = document.querySelector(`.cat-card.${name} .number`);
+        }
     }
 };
 
 const octo = {
-
+    init: function() {
+        model.init();
+        view.init();
+    }
 };
 
 const view = {
+    catsCardContainer: document.querySelector('.card-container'),
+    catsList: document.querySelector('.cat-list'),
 
+    init: function() {
+
+    }
 };
 
 document.addEventListener("DOMContentLoaded", function () {
 
 
-    const player = new Player();
-
-    const catsCardContainer = document.querySelector('.card-container');
-    const catsList = document.querySelector('.cat-list');
-
-    for (const cat in catsNames) {
-        const name = catsNames[cat];
-        const img = catsImages[cat];
-
-        cats[name] = new Cat( name , img );
-        clickCounters[name] = document.querySelector(`.cat-card.${name} .number`);
-    }
 
     for (const cat of catsNames) {
         catsList.innerHTML += cats[cat].catListItem;
