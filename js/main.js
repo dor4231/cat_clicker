@@ -33,11 +33,14 @@ const octo = {
 
     setCurrentCat: function(catName) {
         model.currentCat = model.cats[catName];
-        console.log(model.currentCat);
     },
 
     getCatsNames: function() {
         return model.catsNames;
+    },
+
+    addClick: function() {
+        model.currentCat.clickCounter += 1;
     }
 };
 
@@ -71,11 +74,21 @@ const viewCat = {
     catsCardContainer: document.querySelector('.card-container'),
 
     init: function() {
+        this.catNameContainer = document.querySelector('.cat-card .cat-name');
+        this.catClicksContainer = document.querySelector('.cat-card .number');
+        this.catImage = document.querySelector('.cat-card img');
 
+        this.catImage.addEventListener('click', function() {
+            octo.addClick();
+            viewCat.render();
+        });
     },
 
     render: function() {
         const cat = octo.getCurrentCat();
+        this.catClicksContainer.innerText = cat.clickCounter;
+        this.catNameContainer.innerText = cat.name;
+        this.catImage.src = cat.image;
     }
 };
 
