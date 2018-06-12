@@ -3,7 +3,6 @@ const model = {
     catsNames: ['Mario', 'Marco', 'Meow', 'Lucky', 'Leon'],
     cats: {},
     currentCat: null,
-    // player: new Player(),
 
     init: function() {
         this.createCats();
@@ -20,7 +19,7 @@ const model = {
     }
 };
 
-const octo = {
+const octopus = {
     init: function() {
         model.init();
         viewCatList.init();
@@ -54,14 +53,14 @@ const viewCatList = {
     },
 
     render: function() {
-        const catsNames = octo.getCatsNames();
+        const catsNames = octopus.getCatsNames();
 
         for (const cat of catsNames) {
             const listItem = document.createElement("li");
             listItem.innerText = cat;
             listItem.addEventListener("click", (function(copyCat) {
                 return function() {
-                    octo.setCurrentCat(copyCat);
+                    octopus.setCurrentCat(copyCat);
                     viewCat.render();
                 }
             })(cat));
@@ -79,14 +78,14 @@ const viewCat = {
         this.catImage = document.querySelector('.cat-card img');
 
         this.catImage.addEventListener('click', function() {
-            octo.addClick();
+            octopus.addClick();
             viewCat.render();
         });
         this.render();
     },
 
     render: function() {
-        const cat = octo.getCurrentCat();
+        const cat = octopus.getCurrentCat();
         this.catClicksContainer.innerText = cat.clickCounter;
         this.catNameContainer.innerText = cat.name;
         this.catImage.src = cat.image;
@@ -94,5 +93,5 @@ const viewCat = {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-    octo.init();
+    octopus.init();
 });
