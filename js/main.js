@@ -39,6 +39,12 @@ const octopus = {
         return model.catsNames;
     },
 
+    updateCat: function(name, image, clicks) {
+        model.currentCat.name = name;
+        model.currentCat.image = image;
+        model.currentCat.clickCounter = clicks;
+    },
+
     addClick: function() {
         model.currentCat.clickCounter += 1;
     }
@@ -109,7 +115,20 @@ const viewAdmin = {
             event.preventDefault();
             self.popup.classList.remove('hidden');
             self.render();
-        })
+        });
+
+        this.popup.querySelector('.save').addEventListener('click', function(event) {
+            event.preventDefault();
+            octopus.updateCat(self.catNameInput.value,
+                              self.catImageInput.value,
+                              self.catClicksInput.value );
+            self.popup.classList.add('hidden');
+        });
+
+        this.popup.querySelector('.cancel').addEventListener('click', function(event) {
+            event.preventDefault();
+            self.popup.classList.add('hidden');
+        });
     },
 
     render: function() {
