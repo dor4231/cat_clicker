@@ -100,10 +100,10 @@ document.addEventListener("DOMContentLoaded", function () {
 const viewAdmin = {
     init: function() {
         const self = this;
-        this.popup = document.querySelector('.pop-up .admin');
-        this.catNameInput = popup.querySelector('#cat-name');
-        this.catImageInput = popup.querySelector('#cat-image');
-        this.catClicksInput = popup.querySelector('#cat-clicks');
+        this.popup = document.querySelector('.pop-up.edit-cat');
+        this.catNameInput = this.popup.querySelector('#cat-name');
+        this.catImageInput = this.popup.querySelector('#cat-image');
+        this.catClicksInput = this.popup.querySelector('#cat-clicks');
 
         document.querySelector('#admin').addEventListener('click', function(event) {
             event.preventDefault();
