@@ -24,6 +24,7 @@ const octopus = {
         model.init();
         viewCatList.init();
         viewCat.init();
+        viewAdmin.init();
     },
 
     getCurrentCat: function() {
@@ -95,3 +96,27 @@ const viewCat = {
 document.addEventListener("DOMContentLoaded", function () {
     octopus.init();
 });
+
+const viewAdmin = {
+    init: function() {
+        const self = this;
+        this.popup = document.querySelector('.pop-up .admin');
+        this.catNameInput = popup.querySelector('#cat-name');
+        this.catImageInput = popup.querySelector('#cat-image');
+        this.catClicksInput = popup.querySelector('#cat-clicks');
+
+        document.querySelector('#admin').addEventListener('click', function(event) {
+            event.preventDefault();
+            self.popup.classList.remove('hidden');
+            self.render();
+        })
+    },
+
+    render: function() {
+        const cat = octopus.getCurrentCat();
+
+        this.catNameInput.value = cat.name;
+        this.catImageInput.value = cat.image;
+        this.catClicksInput.value = cat.clickCounter;
+    }
+};
