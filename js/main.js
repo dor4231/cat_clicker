@@ -40,6 +40,10 @@ const octopus = {
     },
 
     updateCat: function(name, image, clicks) {
+        const catPosition = model.catsNames.indexOf(model.currentCat.name);
+
+        model.catsNames[catPosition] = name;
+
         model.currentCat.name = name;
         model.currentCat.image = image;
         model.currentCat.clickCounter = clicks;
@@ -62,7 +66,10 @@ const viewCatList = {
     render: function() {
         const catsNames = octopus.getCatsNames();
 
+        this.catsList.innerHTML = '';
+
         for (const cat of catsNames) {
+            console.log(cat);
             const listItem = document.createElement("li");
             listItem.innerText = cat;
             listItem.addEventListener("click", (function(copyCat) {
@@ -123,6 +130,8 @@ const viewAdmin = {
                               self.catImageInput.value,
                               self.catClicksInput.value );
             self.popup.classList.add('hidden');
+            viewCat.render();
+            viewCatList.render();
         });
 
         this.popup.querySelector('.cancel').addEventListener('click', function(event) {
