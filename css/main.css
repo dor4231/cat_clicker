@@ -75,7 +75,7 @@ p {
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.6);
 }
 
 
@@ -109,4 +109,24 @@ p {
     background: rgba(0,0,0,0.6);
     margin: 10% 2%;
     width: 90%;
+}
+
+
+.hidden {
+    visibility: hidden;
+}
+
+.pop-up.hidden {
+    bottom: -20%;
+}
+
+.pop-up {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    height: 20%;
+    transition: bottom 0.5s,
+                visibility 0.5s;
+    display: flex;
 }
