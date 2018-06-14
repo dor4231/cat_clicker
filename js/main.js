@@ -71,6 +71,7 @@ const viewCatList = {
         for (const cat of catsNames) {
             console.log(cat);
             const listItem = document.createElement("li");
+            listItem.classList.add("clickable");
             listItem.innerText = cat;
             listItem.addEventListener("click", (function(copyCat) {
                 return function() {

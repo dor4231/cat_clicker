@@ -27,6 +27,11 @@ p {
     padding: 0;
 }
 
+.clickable:hover , button:hover {
+    text-shadow: 0 0 6px antiquewhite;
+    background: rgba(0,0,0,0.6);
+}
+
 .click-counter .number {
     font-size: 2em;
 }
@@ -105,8 +110,6 @@ p {
 }
 
 .side-menu li:hover {
-    text-shadow: 0 0 6px antiquewhite;
-    background: rgba(0,0,0,0.6);
     margin: 10% 2%;
     width: 90%;
 }
@@ -121,12 +124,76 @@ p {
 }
 
 .pop-up {
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    width: 100%;
+    width: calc(80% - 100px);
     background: rgba(0,0,0,0.3);
-    height: 20%;
+    height: calc(20% - 100px);
     transition: bottom 0.5s,
                 visibility 0.5s;
     display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.pop-up.edit-cat ul {
+    display: flex;
+    flex-basis: 100%;
+    list-style: none;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+.pop-up.edit-cat input {
+    padding: 10px;
+    width: 100%;
+    border:none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.pop-up.edit-cat .buttons-container {
+    display: flex;
+    margin: 2% 35%;
+    width: 30%;
+    justify-content: space-between;
+}
+
+.buttons-container button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.2);
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.buttons-container button:hover {
+
+}
+
+#admin {
+    width: 40%;
+    margin: 0 30%;
+    padding: 5%;
+    font-size: 1.3em;
+    border-radius: 5px;
+    border:none;
+    background: rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.1);
+    transition: background 0.5s,
+                text-shadow 0.5s,
+                color 0.5s,
+                width 0.5s,
+                margin 0.5s,
+                font-size 0.5s;
+}
+
+#admin:hover {
+    width: 70%;
+    margin: 0 15%;
+    color: #fff;
+    background: rgba(0,0,0,0.7);
 }
